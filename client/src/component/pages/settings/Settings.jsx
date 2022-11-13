@@ -1,8 +1,12 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import "./settings.css"
 import Sidebar from '../../sidebar/Sidebar'
+import {Context} from "../../../context/Context"
 
-export default function settings() {
+export default function Settings() {
+
+  const {user} = useContext(Context);
+
   return (
     <div className="settings">
       <div className="settingsWrapper">
@@ -13,7 +17,7 @@ export default function settings() {
         <form className="settingsForm">
           <label>Profile Picture</label>
           <div className="settingsPP">
-            <img src="https://images.pexels.com/photos/1603650/pexels-photo-1603650.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="" />
+            <img src={user.profilePic} alt="" />
             <label htmlFor="fileInput">
               <i className="settingsPPIcon fa-solid fa-user"></i>
             </label>
